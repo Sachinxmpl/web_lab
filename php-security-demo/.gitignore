@@ -1,0 +1,12 @@
+# SQLite database (auto-generated)
+data/*.sqlite
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# PHP cache
+*.cache
