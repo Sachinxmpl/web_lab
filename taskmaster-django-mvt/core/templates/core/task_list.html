@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4: TaskMaster</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; line-height: 1.6; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+        .stats { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Task Management Lab</h1>
+    
+    <p class="stats">Session Check: You have visited this page <strong>{{ visits }}</strong> times.</p>
+    
+    <hr>
+
+    <a href="/add/">+ Add New Task</a>
+
+    <h3>Your Tasks (Relational DB Records):</h3>
+    {% for task in tasks %}
+        <div class="card">
+            <strong>{{ task.title }}</strong><br>
+            {{ task.description }}
+        </div>
+    {% empty %}
+        <p>No tasks found. Try adding one!</p>
+    {% endfor %}
+
+    <br>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
